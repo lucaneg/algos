@@ -15,12 +15,10 @@ def provide_array():
         if n <= 0:
             array = input("Insert array elements separated by a space (elements will NOT be shuffled):").split()
         else:
-            array = [i + 1 for i in range(n)]
-            random.shuffle(array)
+            array = [random.randint(0, 999999) for i in range(n)]
     elif nargs == 1:
-        print('Generating random array with numbers from 1 to ' + sys.argv[1])
-        array = [i + 1 for i in range(int(sys.argv[1]))]
-        random.shuffle(array)
+        print('Generating random array of ' + sys.argv[1] + ' elements')
+        array = [random.randint(0, 999999) for i in range(int(sys.argv[1]))]
     else:
         array = [int(i) for i in ' '.join(sys.argv[1:]).split()]
         print('Using the following array ' + str(array))
